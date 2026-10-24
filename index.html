@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday! 🎉</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <!-- ১. পাসওয়ার্ড/কুইজ গেট (Quiz Gate) -->
+  <div id="quiz-screen" class="screen active">
+    <div class="card quiz-card">
+      <div class="lock-icon">🔒</div>
+      <h2>Security Check</h2>
+      <p>ওয়েবসাইটে ঢুকতে নিচের সহজ উত্তরটি দাও:</p>
+      <label id="quiz-question" for="quiz-input">আমাদের প্রিয় হ্যাংআউট স্পট / প্রিয় খাবারের নাম কী?</label>
+      <input type="text" id="quiz-input" placeholder="এখানে টাইপ করো...">
+      <button id="quiz-btn" onclick="checkQuiz()">Unlock Surprise 🔓</button>
+      <p id="quiz-error" class="error-msg">ভুল উত্তর! আবার চেষ্টা করো 😉</p>
+      <p class="hint-text">(হিন্ট: যেকোনো কিছু টাইপ করলেও এখন আনলক হবে!)</p>
+    </div>
+  </div>
+
+  <!-- ২. মূল বার্থডে ওয়েবসাইট (Main Portal) -->
+  <div id="main-screen" class="screen">
+    
+    <!-- হেডার ও কাউন্টডাউন/উইশ -->
+    <header class="hero-section">
+      <h1 class="glow-text">Happy Birthday! 🎂✨</h1>
+      <p class="subtitle">আজকের দিনটি শুধুই তোমার জন্য বিশেষ!</p>
+    </header>
+
+    <!-- ভার্চুয়াল কেক ও মোমবাতি ফুঁ দেওয়া -->
+    <section class="section cake-section">
+      <h2>ভার্চুয়াল কেক কাটিং 🍰</h2>
+      <p>মোমবাতিতে ক্লিক করো (বা ফুঁ দাও) মোমবাতি নেভানোর জন্য!</p>
+      
+      <div class="cake-container" onclick="blowCandle()">
+        <div class="candle">
+          <div id="flame" class="flame"></div>
+        </div>
+        <div class="cake-tier top-tier"></div>
+        <div class="cake-tier bottom-tier"></div>
+      </div>
+      <p id="cake-status" class="status-msg">🕯️ মোমবাতিটি জ্বলছে...</p>
+    </section>
+
+    <!-- পোলারয়েড স্মৃতি গ্যালারি (Polaroid Gallery) -->
+    <section class="section gallery-section">
+      <h2>মিষ্টি কিছু স্মৃতি 📸</h2>
+      <p>কার্ডে ক্লিক করে পেছনের সিক্রেট মেসেজ দেখো!</p>
+      
+      <div class="gallery-grid">
+        <!-- কার্ড ১ -->
+        <div class="polaroid-card" onclick="flipCard(this)">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="img-placeholder">📸 ছবি ১</div>
+              <p>সেরা মুহূর্ত</p>
+            </div>
+            <div class="card-back">
+              <p>“তোর সাথে কাটানো প্রতিটা মুহূর্তই বিশেষ। সবসময় এভাবে হাসি-খুশি থাকবি!” ❤️</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- কার্ড ২ -->
+        <div class="polaroid-card" onclick="flipCard(this)">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="img-placeholder">📸 ছবি ২</div>
+              <p>আড্ডা ও আনন্দ</p>
+            </div>
+            <div class="card-back">
+              <p>“কখনো কোনো বিপদে বা আনন্দে—জানবি আমি সবসময় পাশে আছি!” 🤝</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- কার্ড ৩ -->
+        <div class="polaroid-card" onclick="flipCard(this)">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="img-placeholder">📸 ছবি ৩</div>
+              <p>ভবিষ্যতের স্বপ্ন</p>
+            </div>
+            <div class="card-back">
+              <p>“সামনের দিনগুলোতে তোর সব স্বপ্ন পূরণ হোক। শুভ জন্মদিন!” 🌟</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- সিক্রেট উইশ নোটস (Wish Notes) -->
+    <section class="section notes-section">
+      <h2>স্পেশাল বার্থডে নোটস ✉️</h2>
+      <div class="notes-grid">
+        <div class="sticky-note note-1">
+          <h3>নোট #১</h3>
+          <p>সবসময় নিজের লক্ষে অবিচল থাকবি। তুই অনেক দূর যাবি!</p>
+        </div>
+        <div class="sticky-note note-2">
+          <h3>নোট #২</h3>
+          <p>আজকের দিনে প্রচুর বিরিয়ানি আর কেক খাওয়া চাই! 🍗</p>
+        </div>
+        <div class="sticky-note note-3">
+          <h3>নোট #৩</h3>
+          <p>Have the best birthday ever! 🎉</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- কনফেটি বোতাম -->
+    <div class="celebrate-bar">
+      <button class="celebrate-btn" onclick="triggerConfetti()">Celebrate Again! 🎊</button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
